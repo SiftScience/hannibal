@@ -12,7 +12,7 @@ import models.hbase.LogFileParser
 class LogFileParser092 extends LogFileParser {
 
   val COMPACTION = Pattern.compile(
-    """^(.*) INFO (.*)\.CompactionRequest: completed compaction: regionName=(.*\.), storeName=(.*), fileCount=(.*), fileSize=(.*), priority=(.*), time=(.*); duration=(.*)$""",
+    """(.*) \[.*\] (.*) - completed compaction: regionName=(.*\.), storeName=(.*), fileCount=(.*), fileSize=(.*), priority=(.*), time=(.*); duration=(.*)$""",
     Pattern.MULTILINE
   )
   val DATE_GROUP = 1

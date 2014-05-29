@@ -46,7 +46,8 @@ class @ShowCompactionsView extends Backbone.View
           max = record.ts - begin
           date = new Date(begin)
           target = metric.getTargetDesc()
-
+    # TODO(evie): this is super hacky.  Strip the start key from the url
+    targetUrl = target.replace /,.*,/, ",,"
     route = Routes.Regions.show
-      name: target
+      name: targetUrl
     @$(".longest-compaction").html("<b>#{(max/1000.0).toFixed(1)}s</b> <a href='#{route}'>on Region</a>")
